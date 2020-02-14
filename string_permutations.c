@@ -21,16 +21,18 @@ void print_str_arr(char **s, int n)
 
 int next_permutation(int n, char **s)
 {
-    int i;
-    for (i = n-1; i >= 1; i++)
+    int i = n - 1;
+    for (i = n - 1; i >= 1; i--)
     {
         if (strcmp(*(s + i), *(s + (i - 1))) > 0)
         {
             break;
         }
-        
     }
-    return i;
+    if (!i) { // if i == 0 then treat it as 1 and return 0
+        return 0;
+    }
+    return 1;
 }
 
 void main()
