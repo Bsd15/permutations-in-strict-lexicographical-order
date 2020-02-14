@@ -53,7 +53,8 @@ int next_permutation(int n, char **s)
     // Step - 5
     // Reverse the s[i..n)
     j = n - 1;
-    while(i < j) {
+    while (i < j)
+    {
         swap((s + i), (s + j));
         i++;
         j--;
@@ -76,5 +77,4 @@ void main()
     {
         print_str_arr(s, n);
     } while (next_permutation(n, s));
-    
 }
