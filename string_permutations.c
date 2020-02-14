@@ -66,10 +66,11 @@ void main()
 {
     int n;
     scanf("%d", &n);
-    char **s = (char **)malloc(n * sizeof(char *));
+    // char **s = (char **)malloc(n * sizeof(char *));
+    char **s = calloc(n, sizeof(char *));
     for (int i = 0; i < n; i++)
     {
-        *(s + i) = malloc(1024 * sizeof(char));
+        *(s + i) = calloc(20,sizeof(char));
         scanf("%s", *(s + i));
         *(s + i) = realloc(*(s + i), strlen(*(s + i)));
     }
