@@ -19,8 +19,18 @@ void print_str_arr(char **s, int n)
     printf("\n");
 }
 
-int next_permutation(int n, char **s) {
-    
+int next_permutation(int n, char **s)
+{
+    int i;
+    for (i = n-1; i >= 1; i++)
+    {
+        if (strcmp(*(s + i), *(s + (i - 1))) > 0)
+        {
+            break;
+        }
+        
+    }
+    return i;
 }
 
 void main()
@@ -34,5 +44,5 @@ void main()
         scanf("%s", *(s + i));
         *(s + i) = realloc(*(s + i), strlen(*(s + i)));
     }
-    
+    printf("%d", next_permutation(n, s));
 }
