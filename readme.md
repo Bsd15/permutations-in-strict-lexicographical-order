@@ -1,6 +1,6 @@
 # Permutations of Strings
 
-Solution to [Hackerrank questions](https://www.hackerrank.com/challenges/permutations-of-strings/problem)
+Solution to [Hackerrank question](https://www.hackerrank.com/challenges/permutations-of-strings/problem)
 
 Implemented algorithm for permutation of strings in strict lexicographical order.
 
