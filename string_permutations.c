@@ -21,6 +21,8 @@ void print_str_arr(char **s, int n)
 
 int next_permutation(int n, char **s)
 {
+    // Step - 1
+    // Find i such that s[i-1] < s[i]
     int i = n - 1;
     for (i = n - 1; i >= 1; i--)
     {
@@ -29,8 +31,32 @@ int next_permutation(int n, char **s)
             break;
         }
     }
-    if (!i) { // if i == 0 then treat it as 1 and return 0
+    // Step - 2
+    // If i == 0, then array is in decending order, no more permutations possible.
+    if (!i)
+    { // if i == 0 then treat it as 1 and return 0
         return 0;
+    }
+    // Step - 3
+    // Find j such that, s[i-1] < s[j] && j < i
+    int j;
+    for (j = n - 1; j >= 1; j--)
+    {
+        if (strcmp(*(s + j), *(s + (i - 1))) > 0)
+        {
+            break;
+        }
+    }
+    // Step - 4
+    // Swap s[i-1] & s[j]
+    swap((s + (i - 1)), (s + j));
+    // Step - 5
+    // Reverse the s[i..n)
+    j = n - 1;
+    while(i < j) {
+        swap((s + i), (s + j));
+        i++;
+        j--;
     }
     return 1;
 }
@@ -46,5 +72,16 @@ void main()
         scanf("%s", *(s + i));
         *(s + i) = realloc(*(s + i), strlen(*(s + i)));
     }
-    printf("%d", next_permutation(n, s));
+    printf("%d\n", next_permutation(n, s));
+    print_str_arr(s, n);
+    printf("%d\n", next_permutation(n, s));
+    print_str_arr(s, n);
+    printf("%d\n", next_permutation(n, s));
+    print_str_arr(s, n);
+    printf("%d\n", next_permutation(n, s));
+    print_str_arr(s, n);
+    printf("%d\n", next_permutation(n, s));
+    print_str_arr(s, n);
+    printf("%d\n", next_permutation(n, s));
+    print_str_arr(s, n);
 }
