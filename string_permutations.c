@@ -72,16 +72,9 @@ void main()
         scanf("%s", *(s + i));
         *(s + i) = realloc(*(s + i), strlen(*(s + i)));
     }
-    printf("%d\n", next_permutation(n, s));
-    print_str_arr(s, n);
-    printf("%d\n", next_permutation(n, s));
-    print_str_arr(s, n);
-    printf("%d\n", next_permutation(n, s));
-    print_str_arr(s, n);
-    printf("%d\n", next_permutation(n, s));
-    print_str_arr(s, n);
-    printf("%d\n", next_permutation(n, s));
-    print_str_arr(s, n);
-    printf("%d\n", next_permutation(n, s));
-    print_str_arr(s, n);
+    do
+    {
+        print_str_arr(s, n);
+    } while (next_permutation(n, s));
+    
 }
